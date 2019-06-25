@@ -7,8 +7,7 @@ def index():
     # reading the posts
     with open('posts.json', "r") as f:
         posts = json.load(f)
-    print(posts)
-    return render_template('index.html')
+    return render_template('index.html', posts=posts)
 
 @app.route('/postdiscussion', methods=['POST', 'GET'])
 def post_page():
