@@ -22,6 +22,7 @@ def post():
     formdata = request.form.to_dict()
     formdata['date'] = datetime.now()
     formdata['comments'] = []
+    formdata['points'] = 0
     if len(posts) < 1:
         formdata['post_id'] = 1
     else:
@@ -45,7 +46,16 @@ def comments(post_id):
 
 @app.route('/upvote', methods=['POST'])
 def upvote():
-    return 0
+    data = request.get_json()
+
+    with open('posts.json', 'r+') as f:
+        posts = json.load(f)
+        posts[int(data['id'])]['points'] += 1
+
+    with open('posts.json', "w") as f:
+        json.dump(posts, f, indent=2, separators=(',', ':'))
+    
+    return jsonify(0)
 
 @app.route('/downvote')
 def downvote():
