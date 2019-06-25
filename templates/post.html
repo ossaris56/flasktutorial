@@ -6,22 +6,22 @@
     <title>Post</title>
 </head>
 <body>
-<div class="row">
-<form class="col s12" method="POST">
-  <h2 class="header">Post a discussion</h2>
+<div class="container">
+<form class="col s12" action="/post" method="POST">
+  <h2 class="header light-blue-text">Post a discussion</h2>
   <div class="row">
     <div class="input-field col s12">
-      <textarea id="title" class="materialize-textarea"></textarea>
+      <textarea name="title" class="materialize-textarea"></textarea>
       <label for="title">Title</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <textarea id="text" class="materialize-textarea"></textarea>
+      <textarea name="text" class="materialize-textarea"></textarea>
       <label for="text">Text</label>
     </div>
 </div>
-  <button class="btn waves-effect waves-light" type="submit">Submit
+  <button class="btn waves-effect waves-light" type="submit" value="Submit">Submit
   </button>
 </form>
 </div>
