@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Reddit with Flask</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <title>Reddit with Flask</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col s8">
-                {% for post in posts %}
-                  <div class="section">
-                      <h5>{{ post['title'] }}</h5>
-                      <p>{{ post['text'] }}</p>
-                      <a href=comments/{{post['post_id']}} >
-                          {{ post['comments']|length }} comments
-                      </a>
-                  </div>
-                  <div class="divider"></div>
-                 {% endfor %}
-                 <div class="row">
-                      <div class="section">
-                          <h5>sada</h5>
-                          <p>sasdsadsa</p>
-                          <p>asdsad</p>
-                      </div>
-                      <div class="divider"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col s8">
+        {% for post in posts %}
+          <div class="section">
+              <div class="row">
+                <div class="col s1">
+                  <i class="small material-icons">arrow_upward</i>
+                  <p>asda</p>
+                  <i class="small material-icons">arrow_downward</i>
                 </div>
-            </div>
-            <div class="col s3">
-                <div class="section">
-                    <a href="postdiscussion" class="waves-effect waves-light btn-large">Post something!</a>
+                <div class="col s11">
+                  <h5>{{ post['title'] }}</h5>
+                  <p>{{ post['text'] }}</p>
+                  <a href=comments/{{post['post_id']}} >
+                      {{ post['comments']|length }} comments
+                  </a>
                 </div>
-            </div>
+              </div>
+              <div class="divider"></div>
+          </div>
+          {% endfor %}
+          </div>
+          <div class="divider"></div>
+          <div class="col s3">
+            <div class="section">
+              <a href="postdiscussion" class="waves-effect waves-light btn-large">Post something!</a>
         </div>
+      </div>
     </div>
+  </div>
 </body>
 </html>

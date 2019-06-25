@@ -3,20 +3,12 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-
-with open('posts.json', "r") as f:
-    posts = json.load(f)
-
 @app.route("/")
 def index():
+    with open('posts.json', "r") as f:
+        posts = json.load(f)
     # getting time difference of posts
-    now = datetime.now()
-    time = []
-    '''
-    for post in posts:
-        time.append(datetime.strptime(post['date'], 'insert time format') - now)
-    '''
-    return render_template('index.html', posts=posts, time=time)
+    return render_template('index.html', posts=posts)
 
 @app.route('/postdiscussion', methods=['POST', 'GET'])
 def post_page():
@@ -44,6 +36,8 @@ def post():
 
 @app.route('/comments/<int:post_id>')
 def comments(post_id):
+    with open('posts.json', "r") as f:
+        posts = json.load(f)
     for post in posts:
         if post_id == post['post_id']:
             post_dict = post
