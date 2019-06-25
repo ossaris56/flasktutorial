@@ -21,10 +21,12 @@ def post():
         with open('posts.json', "r") as f:
             posts = json.load(f)
         # add post to posts
-        posts.append(request.form)
+        formdata = request.form.to_dict()
+        formdata['comments'] = []
+        posts.append(formdata)
         # write the post
         with open('posts.json', "w") as f:
-            json.dump(posts, f)
+            json.dump(posts, f, sort_keys = True, indent=2, separators=(',', ':'))
 
         return redirect('/')
     else: # GET http method
