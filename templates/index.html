@@ -16,9 +16,9 @@
           <div class="section">
               <div class="row">
                 <div class="col s1">
-                  <i class="small material-icons">arrow_upward</i>
+                  <i class="small material-icons" id={{post['id']}}>arrow_upward</i>
                   <p>asda</p>
-                  <i class="small material-icons">arrow_downward</i>
+                  <i class="small material-icons" id={{post['id']}}>arrow_downward</i>
                 </div>
                 <div class="col s11">
                   <h5>{{ post['title'] }}</h5>
@@ -30,12 +30,12 @@
               </div>
               <div class="divider"></div>
           </div>
-          {% endfor %}
-          </div>
-          <div class="divider"></div>
-          <div class="col s3">
-            <div class="section">
-              <a href="postdiscussion" class="waves-effect waves-light btn-large">Post something!</a>
+        {% endfor %}
+      </div>
+      <div class="divider"></div>
+      <div class="col s3">
+        <div class="section">
+          <a href="postdiscussion" class="waves-effect waves-light btn-large">Post something!</a>
         </div>
       </div>
     </div>
