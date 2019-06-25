@@ -11,22 +11,16 @@
     <div class="container">
         <div class="row">
             <div class="col s8">
-                {% for post in posts %}
-                  <div class="section">
-                      <h5>{{ post['title'] }}</h5>
-                      <p>{{ post['text'] }}</p>
-                      <p>{{ post['comments']|length }} comments</p>
-                  </div>
-                  <div class="divider"></div>
-                 {% endfor %}
-                 <div class="row">
-                      <div class="section">
-                          <h5>sada</h5>
-                          <p>sasdsadsa</p>
-                          <p>asdsad</p>
-                      </div>
-                      <div class="divider"></div>
-                </div>
+               <div class="section">
+                   <h5>{{ post_dict['title'] }}</h5>
+                   <p>{{ post_dict['text'] }}</p>
+                    <div class="divider"></div>
+               </div>
+               <div class="section">
+                   <p>blabla</p>
+                    <div class="divider"></div>
+               </div>
+            <div class="divider"></div>
             </div>
             <div class="col s3">
                 <div class="section">

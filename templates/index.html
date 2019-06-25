@@ -15,7 +15,9 @@
                   <div class="section">
                       <h5>{{ post['title'] }}</h5>
                       <p>{{ post['text'] }}</p>
-                      <p>{{ post['comments']|length }} comments</p>
+                      <a href=comments/{{post['post_id']}} >
+                          {{ post['comments']|length }} comments
+                      </a>
                   </div>
                   <div class="divider"></div>
                  {% endfor %}
