@@ -43,4 +43,12 @@ def comments(post_id):
             post_dict = post
     return render_template('comments.html', post_id=post_id, post_dict=post_dict)
 
+@app.route('/upvote', methods=['POST'])
+def upvote():
+    return 0
+
+@app.route('/downvote')
+def downvote():
+    return 0
+
 app.run(debug=True)

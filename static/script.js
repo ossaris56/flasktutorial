@@ -1,14 +1,14 @@
-function upload() {
-  var output;
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/upvote');
-  xhr.send();
+function upvote(id) {
+  console.log('id is this', id);
+  fetch('/upvote', {
+    method: 'POST'
+  }).then(function(response) {
+    console.log('response', response);
+  }).catch(function(err) {
+    // Error :(
+    console.log('err', err);
+  });
+}
 
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      output = xhr.responseText;
-      document.getElementById('output').innerHTML = output;
-      console.log(output);
-    }
-  }
+function downvote(id) {
 }
