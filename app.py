@@ -64,7 +64,10 @@ def upvote():
     # increment the points counter
     post_dict['points'] += 1
     write_json('posts.json', posts)
-    return jsonify(0)
+    # return jsonify(0)
+    return jsonify(
+        id=post_dict['points']
+    )
 
 @app.route('/downvote', methods=['POST'])
 def downvote():
@@ -72,10 +75,10 @@ def downvote():
     posts = read_json('posts.json')
     post_dict = posts[data['id']]
 
-    # increment the points counter
+    # decrement the points counter
     post_dict['points'] -= 1
     write_json('posts.json', posts)
 
-    return jsonify(0)
+    return jsonify({'id': post_dict['points']})
 
 app.run(debug=True)
