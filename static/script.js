@@ -1,50 +1,31 @@
 function upvote(id) {
-  if (document.getElementById('p'+id).classList.contains('upvoted')) {
-    return
-  }
+  points = document.getElementById('p'+id);
   fetch('/upvote', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({'id': id})
-  }).then(function(response) {
-    // return a promise
-    return response.json()
-  }).then(function(response) {
-    console.log(JSON.stringify(response));
-    document.getElementById('p'+id).innerText = response['id'];
-    document.getElementById('p'+id).classList.add('upvoted');
-    if (document.getElementById('p'+id).classList.contains('downvoted')) {
-      document.getElementById('p'+id).classList.remove('downvoted')
-    }
+  }).then(res => res.json())
+  .then(function(response) {
+    points.innerText = response['id']
   }).catch(function(err) {
     console.log('error', err);
   })
-  upvoted = true;
 }
 
 function downvote(id) {
-  if (document.getElementById('p'+id).classList.contains('downvoted')) {
-    return
-  }
+  points = document.getElementById('p'+id);
   fetch('/downvote', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({'id': id})
-  }).then(function(response) {
-    return response.json()
-  }).then(function(response) {
-    console.log(JSON.stringify(response));
-    document.getElementById('p'+id).innerText = response['id'];
-    document.getElementById('p'+id).classList.add('downvoted');
-    if (document.getElementById('p'+id).classList.contains('upvoted')) {
-      document.getElementById('p'+id).classList.remove('upvoted')
-    }
+  }).then(res => res.json())
+  .then(function(response) {
+    points.innerText = response['id'];
   }) .catch(function(err) {
     console.log('error', err);
   });
-  downvoted = true;
 }

@@ -5,7 +5,7 @@
       "gvcgvc"
     ],
     "date":"Wed, 26 Jun 2019 23:44:38 GMT",
-    "points":40,
+    "points":45,
     "post_id":"29b3b0b9",
     "text":"test",
     "title":"test"
@@ -13,14 +13,14 @@
   "39ef7d66":{
     "comments":[],
     "date":"Wed, 26 Jun 2019 23:44:48 GMT",
-    "points":3,
+    "points":-9,
     "post_id":"39ef7d66",
     "text":"aaa",
     "title":"aaa"
   },
   "50bb0bd1":{
     "comments":[],
-    "points":0,
+    "points":-4,
     "post_id":"50bb0bd1",
     "text":"qweqwewq",
     "title":"asd"
