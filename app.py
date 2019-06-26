@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, jsonify, redirect, json
 import uuid
 
+from pprint import pprint
+
 app = Flask(__name__)
 
 def read_json(json_file):
@@ -55,27 +57,29 @@ def comments(post_id):
 @app.route('/upvote', methods=['POST'])
 def upvote():
     data = request.get_json()
+    posts = read_json('posts.json')
+    post_dict = posts[data['id']]
 
-    with open('posts.json', 'r+') as f:
-        posts = json.load(f)
-        posts[int(data['id'])]['points'] += 1
-
-    with open('posts.json', 'w') as f:
-        json.dump(posts, f, indent=2, separators=(',', ':'))
-
-    return jsonify(0)
+    # increment the points counter
+    post_dict['points'] += 1
+    write_json('posts.json', posts)
+    # return jsonify(0)
+    return jsonify(
+        id=post_dict['points']
+    )
 
 @app.route('/downvote', methods=['POST'])
 def downvote():
     data = request.get_json()
+    posts = read_json('posts.json')
+    post_dict = posts[data['id']]
 
-    with open('post.json', 'r+') as f:
-        posts = json.load(f)
-        posts[int(data['id'])]['points'] -= 1
+    # decrement the points counter
+    post_dict['points'] -= 1
+    write_json('posts.json', posts)
 
-    with open('posts.json', 'w') as f:
-        json.dump(posts, f, indent=2, separators=(',', ':'))
-
-    return jsonify(0)
+    return jsonify(
+        id=post_dict['points']
+    )
 
 app.run(debug=True)

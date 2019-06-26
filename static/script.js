@@ -1,29 +1,31 @@
 function upvote(id) {
-  console.log('id', id);
+  points = document.getElementById('p'+id);
   fetch('/upvote', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({'id': id})
-  }).then(function(response) {
-    console.log('response', response);
+  }).then(res => res.json())
+  .then(function(response) {
+    points.innerText = response['id']
   }).catch(function(err) {
-    // Error :(
     console.log('error', err);
-  });
+  })
 }
 
 function downvote(id) {
+  points = document.getElementById('p'+id);
   fetch('/downvote', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({'id': id})
-  }).then(function(response) {
-    console.log('response', response);
-  }).catch(function(err) {
+  }).then(res => res.json())
+  .then(function(response) {
+    points.innerText = response['id'];
+  }) .catch(function(err) {
     console.log('error', err);
   });
 }
