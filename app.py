@@ -64,13 +64,22 @@ def upvote():
         posts = json.load(f)
         posts[int(data['id'])]['points'] += 1
 
-    with open('posts.json', "w") as f:
+    with open('posts.json', 'w') as f:
         json.dump(posts, f, indent=2, separators=(',', ':'))
     
     return jsonify(0)
 
-@app.route('/downvote')
+@app.route('/downvote', methods=['POST'])
 def downvote():
-    return 0
+    data = request.get_json()
+
+    with open('post.json', 'r+') as f:
+        posts = json.load(f)
+        posts[int(data['id'])]['points'] -= 1
+
+    with open('posts.json', 'w') as f:
+        json.dump(posts, f, indent=2, separators=(',', ':'))
+
+    return jsonify(0)
 
 app.run(debug=True)
