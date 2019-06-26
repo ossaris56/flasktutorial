@@ -30,11 +30,8 @@ def post_page():
 @app.route('/post', methods=['POST'])
 def post():
     posts = read_json('posts.json')
-
-    # add post to posts
     formdata = request.form.to_dict()
-    formdata['date'], formdata['comments'], formdata['points'] = datetime.now(), [], 0
-    formdata['post_id'] = uuid.uuid4().hex[:8]
+    formdata['date'], formdata['comments'], formdata['points'], formdata['post_id'] = datetime.now(), [], 0, uuid.uuid4().hex[:8]
     posts[formdata['post_id']] = formdata
 
     # write the post

@@ -1,43 +1,29 @@
 {
-  "5e786e1b":{
+  "29b3b0b9":{
     "comments":[
-      "123213",
-      "asdadsda"
+      "hi",
+      "gvcgvc"
     ],
-    "date":"Wed, 26 Jun 2019 23:38:10 GMT",
+    "date":"Wed, 26 Jun 2019 23:44:38 GMT",
     "points":0,
-    "post_id":"5e786e1b",
-    "text":"asdfasf",
-    "title":"blabla"
-  },
-  "c53e9d00":{
-    "comments":[
-      "hello",
-      "yo"
-    ],
-<<<<<<< HEAD
-    "date":"Wed, 26 Jun 2019 23:32:59 GMT",
-    "points":0,
-    "post_id":"c53e9d00",
-    "text":"hi",
+    "post_id":"29b3b0b9",
+    "text":"test",
     "title":"test"
-=======
-    "date":"Wed, 26 Jun 2019 19:51:56 GMT",
-    "points":5,
-    "post_id":2,
-    "text":"",
-    "title":"sadsad"
   },
-  {
-    "comments":[
-      "asd",
-      "asd"
-    ],
-    "date":"Wed, 26 Jun 2019 12:26:21 GMT",
-    "points":7,
-    "post_id":3,
-    "text":"asd",
-    "title":"asd"
->>>>>>> d72cee6cdc2fdd40a4a91970cd212724ffe7d0f9
+  "39ef7d66":{
+    "comments":[],
+    "date":"Wed, 26 Jun 2019 23:44:48 GMT",
+    "points":0,
+    "post_id":"39ef7d66",
+    "text":"aaa",
+    "title":"aaa"
+  },
+  "d93b5108":{
+    "comments":[],
+    "date":"Thu, 27 Jun 2019 00:04:20 GMT",
+    "points":0,
+    "post_id":"d93b5108",
+    "text":"sadasdad",
+    "title":"asdsadas"
   }
 }
