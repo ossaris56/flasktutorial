@@ -1,65 +1,24 @@
 [
   {
-    "comments":[],
-    "date":"Wed, 26 Jun 2019 01:54:04 GMT",
+    "comments":[
+      "wqe",
+      "asdsad",
+      "hi im a comment"
+    ],
+    "date":"Wed, 26 Jun 2019 19:51:34 GMT",
+    "points":0,
     "post_id":1,
-    "text":"421421421",
-    "title":"213"
-  },
-  {
-    "comments":[],
-    "date":"Wed, 26 Jun 2019 02:24:37 GMT",
-    "post_id":2,
-    "text":"hsaldaljdsldsa",
-    "title":"HI"
-  },
-  {
-    "comments":[],
-    "date":"Wed, 26 Jun 2019 02:25:42 GMT",
-    "post_id":3,
-    "text":"2121",
-    "title":"213"
-  },
-  {
-    "comments":[],
-    "date":"Wed, 26 Jun 2019 02:26:45 GMT",
-    "post_id":4,
-    "text":"kaka",
+    "text":"aaaa",
     "title":"test"
   },
   {
-    "comments":[],
-    "date":"Wed, 26 Jun 2019 02:27:27 GMT",
-    "post_id":5,
-    "text":"4141",
-    "title":"213"
-  },
-  {
-    "comments":[],
-    "date":"Wed, 26 Jun 2019 02:27:57 GMT",
-    "post_id":6,
-    "text":"321532125",
-    "title":"51521214321"
-  },
-  {
-    "comments":[],
-    "date":"Wed, 26 Jun 2019 02:28:33 GMT",
-    "post_id":7,
-    "text":"wants to teach flask even though he doesnt know how to use it",
-    "title":"jasper "
-  },
-  {
-    "comments":[],
-    "date":"Wed, 26 Jun 2019 02:29:30 GMT",
-    "post_id":8,
-    "text":"2",
-    "title":"21"
-  },
-  {
-    "comments":[],
-    "date":"Wed, 26 Jun 2019 02:42:25 GMT",
-    "post_id":9,
-    "text":"asssssssss",
-    "title":"asssss"
+    "comments":[
+      "asdad"
+    ],
+    "date":"Wed, 26 Jun 2019 19:51:56 GMT",
+    "points":0,
+    "post_id":2,
+    "text":"",
+    "title":"sadsad"
   }
 ]

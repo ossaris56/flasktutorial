@@ -17,7 +17,7 @@
           <div class="divider"></div>
         </div>
         <div class="row">
-          <form class="col s12" method='POST'>
+          <form class="col s12" action="/comments/{{post_id}}/postcomment" method='POST'>
             <div class="row">
               <form>
                 <div class="input-field col s12">
@@ -32,6 +32,12 @@
               </div>
             </div>
           </form>
+          {% for comment in post_dict['comments'] %}
+            <div class="section">
+              <p>{{ comment }}</p>
+            </div>
+            <div class="divider"></div>
+          {% endfor %}
         </div>
        </div>
        <div class="col s3">
