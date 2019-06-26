@@ -34,7 +34,16 @@ def post():
 
     return redirect('/')
 
-@app.route('/comments/<int:post_id>')
+@app.route('/comments/<int:post_id>/postcomment', methods=['POST'])
+def postcomment(post_id):
+    with open('posts.json', "r") as f:
+        posts = json.load(f)
+    for post in posts:
+        if post_id == post['post_id']:
+            post_dict = post
+    post['comments'].append(request.form['comment'])
+    return redirect('/comments/<int:post_id>')
+@app.route('/comments/<int:post_id>', methods=['POST'])
 def comments(post_id):
     with open('posts.json', "r") as f:
         posts = json.load(f)
