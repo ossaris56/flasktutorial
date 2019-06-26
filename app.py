@@ -3,9 +3,9 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def index():
-    with open('posts.json', "r") as f:
+    with open('posts.json', 'r') as f:
         posts = json.load(f)
     # getting time difference of posts
     return render_template('index.html', posts=posts)
@@ -16,7 +16,7 @@ def post_page():
 
 @app.route('/post', methods=['POST'])
 def post():
-    with open('posts.json', "r") as f:
+    with open('posts.json', 'r') as f:
         posts = json.load(f)
     # add post to posts
     formdata = request.form.to_dict()
@@ -37,7 +37,7 @@ def post():
 
 @app.route('/comments/<int:post_id>/postcomment', methods=['POST'])
 def postcomment(post_id):
-    with open('posts.json', "r") as f:
+    with open('posts.json', 'r') as f:
         posts = json.load(f)
         for post in posts:
             if post_id == post['post_id']:
@@ -49,7 +49,7 @@ def postcomment(post_id):
 
 @app.route('/comments/<int:post_id>', methods=['POST', 'GET'])
 def comments(post_id):
-    with open('posts.json', "r") as f:
+    with open('posts.json', 'r') as f:
         posts = json.load(f)
     for post in posts:
         if post_id == post['post_id']:
@@ -66,13 +66,22 @@ def upvote():
         posts = json.load(f)
         posts[int(data['id'])]['points'] += 1
 
-    with open('posts.json', "w") as f:
+    with open('posts.json', 'w') as f:
         json.dump(posts, f, indent=2, separators=(',', ':'))
     
     return jsonify(0)
 
-@app.route('/downvote')
+@app.route('/downvote', methods=['POST'])
 def downvote():
-    return 0
+    data = request.get_json()
+
+    with open('post.json', 'r+') as f:
+        posts = json.load(f)
+        posts[int(data['id'])]['points'] -= 1
+
+    with open('posts.json', 'w') as f:
+        json.dump(posts, f, indent=2, separators=(',', ':'))
+
+    return jsonify(0)
 
 app.run(debug=True)

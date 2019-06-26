@@ -16,9 +16,20 @@
       "asdad"
     ],
     "date":"Wed, 26 Jun 2019 19:51:56 GMT",
-    "points":0,
+    "points":5,
     "post_id":2,
     "text":"",
     "title":"sadsad"
+  },
+  {
+    "comments":[
+      "asd",
+      "asd"
+    ],
+    "date":"Wed, 26 Jun 2019 12:26:21 GMT",
+    "points":7,
+    "post_id":3,
+    "text":"asd",
+    "title":"asd"
   }
 ]
