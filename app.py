@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify, redirect, json
-from datetime import datetime
 import uuid
 
 app = Flask(__name__)
@@ -23,7 +22,7 @@ def index():
     # getting time difference of posts
     return render_template('index.html', posts=posts)
 
-@app.route('/postdiscussion', methods=['POST', 'GET'])
+@app.route('/postdiscussion')
 def post_page():
     return render_template('post.html')
 
@@ -31,7 +30,7 @@ def post_page():
 def post():
     posts = read_json('posts.json')
     formdata = request.form.to_dict()
-    formdata['date'], formdata['comments'], formdata['points'], formdata['post_id'] = datetime.now(), [], 0, uuid.uuid4().hex[:8]
+    formdata['comments'], formdata['points'], formdata['post_id'] = [], 0, uuid.uuid4().hex[:8]
     posts[formdata['post_id']] = formdata
 
     # write the post
