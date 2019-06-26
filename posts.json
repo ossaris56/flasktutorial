@@ -1,37 +1,30 @@
 {
-  "29b3b0b9":{
-    "comments":[
-      "hi",
-      "gvcgvc",
-      "asdasdasdasd"
-    ],
-    "date":"Wed, 26 Jun 2019 23:44:38 GMT",
-    "points":39,
-    "post_id":"29b3b0b9",
+  "f84926a8":{
+    "title":"test",
     "text":"test",
-    "title":"test"
-  },
-  "39ef7d66":{
     "comments":[],
-    "date":"Wed, 26 Jun 2019 23:44:48 GMT",
-    "points":-9,
-    "post_id":"39ef7d66",
-    "text":"aaa",
-    "title":"aaa"
-  },
-  "50bb0bd1":{
-    "comments":[],
-    "points":-4,
-    "post_id":"50bb0bd1",
-    "text":"qweqwewq",
-    "title":"asd"
-  },
-  "d93b5108":{
-    "comments":[],
-    "date":"Thu, 27 Jun 2019 00:04:20 GMT",
     "points":0,
-    "post_id":"d93b5108",
-    "text":"sadasdad",
-    "title":"asdsadas"
+    "post_id":"f84926a8"
+  },
+  "c042d69e":{
+    "title":"aaaa",
+    "text":"asdad",
+    "comments":[],
+    "points":0,
+    "post_id":"c042d69e"
+  },
+  "b9f3488e":{
+    "title":"1232",
+    "text":"4141",
+    "comments":[],
+    "points":0,
+    "post_id":"b9f3488e"
+  },
+  "6e3310de":{
+    "title":"asdad",
+    "text":"fafsa",
+    "comments":[],
+    "points":0,
+    "post_id":"6e3310de"
   }
 }

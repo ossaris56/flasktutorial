@@ -15,7 +15,7 @@ def read_json(json_file):
 
 def write_json(json_file, data):
     with open(json_file, "w") as f:
-        json.dump(data, f, indent=2, separators=(',', ':'))
+        json.dump(data, f, indent=2, separators=(',', ':'), sort_keys=False)
 
 @app.route("/")
 def index():
