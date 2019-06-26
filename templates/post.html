@@ -5,24 +5,25 @@
   <title>Post</title>
 </head>
 <body>
-<div class="container">
-<form class="col s12" action="/post" method="POST">
-  <h2 class="header light-blue-text">Post a discussion</h2>
-  <div class="row">
-    <div class="input-field col s12">
-      <textarea name="title" class="materialize-textarea"></textarea>
-      <label for="title">Title</label>
-    </div>
+  {% include 'nav.html' %}
+  <div class="container">
+    <form class="col s12" action="/post" method="POST">
+      <h2 class="header light-blue-text">Post a discussion</h2>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea name="title" class="materialize-textarea"></textarea>
+          <label for="title">Title</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea name="text" class="materialize-textarea"></textarea>
+          <label for="text">Text</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" value="Submit">Submit
+      </button>
+    </form>
   </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <textarea name="text" class="materialize-textarea"></textarea>
-      <label for="text">Text</label>
-    </div>
-</div>
-  <button class="btn waves-effect waves-light" type="submit" value="Submit">Submit
-  </button>
-</form>
-</div>
 </body>
 </html>
