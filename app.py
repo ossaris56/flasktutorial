@@ -1,12 +1,25 @@
 from flask import Flask, render_template, request, jsonify, redirect, json
 from datetime import datetime
+import uuid
 
 app = Flask(__name__)
 
+def read_json(json_file):
+    with open(json_file, "r") as f:
+        try:
+            posts = json.load(f)
+        except ValueError:
+            posts = {}
+        return posts
+
+def write_json(json_file, data):
+    with open(json_file, "w") as f:
+        json.dump(data, f, indent=2, separators=(',', ':'))
+
 @app.route("/")
 def index():
-    with open('posts.json', "r") as f:
-        posts = json.load(f)
+    posts = read_json('posts.json')
+
     # getting time difference of posts
     return render_template('index.html', posts=posts)
 
@@ -16,45 +29,30 @@ def post_page():
 
 @app.route('/post', methods=['POST'])
 def post():
-    with open('posts.json', "r") as f:
-        posts = json.load(f)
+    posts = read_json('posts.json')
+
     # add post to posts
     formdata = request.form.to_dict()
-    formdata['date'] = datetime.now()
-    formdata['comments'] = []
-    formdata['points'] = 0
-    if len(posts) < 1:
-        formdata['post_id'] = 1
-    else:
-        formdata['post_id'] = posts[-1]['post_id'] + 1
-    posts.append(formdata)
+    formdata['date'], formdata['comments'], formdata['points'] = datetime.now(), [], 0
+    formdata['post_id'] = uuid.uuid4().hex[:8]
+    posts[formdata['post_id']] = formdata
 
     # write the post
-    with open('posts.json', "w") as f:
-        json.dump(posts, f, indent=2, separators=(',', ':'))
+    write_json('posts.json', posts)
 
     return redirect('/')
 
-@app.route('/comments/<int:post_id>/postcomment', methods=['POST'])
+@app.route('/comments/<string:post_id>/postcomment', methods=['POST'])
 def postcomment(post_id):
-    with open('posts.json', "r") as f:
-        posts = json.load(f)
-        for post in posts:
-            if post_id == post['post_id']:
-                post['comments'].append(request.form['comment'])
-
-    with open('posts.json', 'w') as f:
-        json.dump(posts, f, indent=2, separators=(',', ':'))
+    posts = read_json('posts.json')
+    posts[post_id]['comments'].append(request.form['comment'])
+    write_json('posts.json', posts)
     return redirect('/comments/' + str(post_id))
 
-@app.route('/comments/<int:post_id>', methods=['POST', 'GET'])
+@app.route('/comments/<string:post_id>', methods=['POST', 'GET'])
 def comments(post_id):
-    with open('posts.json', "r") as f:
-        posts = json.load(f)
-    for post in posts:
-        if post_id == post['post_id']:
-            post_dict = post
-            break
+    posts = read_json('posts.json')
+    post_dict = posts[post_id]
 
     return render_template('comments.html', post_id=post_id, post_dict=post_dict)
 

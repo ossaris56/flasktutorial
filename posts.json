@@ -1,24 +1,24 @@
-[
-  {
+{
+  "5e786e1b":{
     "comments":[
-      "wqe",
-      "asdsad",
-      "hi im a comment"
+      "123213",
+      "asdadsda"
     ],
-    "date":"Wed, 26 Jun 2019 19:51:34 GMT",
+    "date":"Wed, 26 Jun 2019 23:38:10 GMT",
     "points":0,
-    "post_id":1,
-    "text":"aaaa",
-    "title":"test"
+    "post_id":"5e786e1b",
+    "text":"asdfasf",
+    "title":"blabla"
   },
-  {
+  "c53e9d00":{
     "comments":[
-      "asdad"
+      "hello",
+      "yo"
     ],
-    "date":"Wed, 26 Jun 2019 19:51:56 GMT",
+    "date":"Wed, 26 Jun 2019 23:32:59 GMT",
     "points":0,
-    "post_id":2,
-    "text":"",
-    "title":"sadsad"
+    "post_id":"c53e9d00",
+    "text":"hi",
+    "title":"test"
   }
-]
+}
