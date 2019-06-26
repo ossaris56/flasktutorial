@@ -20,9 +20,12 @@ def write_json(json_file, data):
 @app.route("/")
 def index():
     posts = read_json('posts.json')
+    reversed_posts = {}
+    for key in reversed(list(posts.keys())):
+        reversed_posts[key] = posts[key]
 
     # getting time difference of posts
-    return render_template('index.html', posts=posts)
+    return render_template('index.html', posts=reversed_posts)
 
 @app.route('/postdiscussion')
 def post_page():
