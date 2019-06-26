@@ -23,7 +23,7 @@
                 </div>
                 <div class="col s10">
                   <h5>{{ post['title'] }}</h5>
-                  <p>{{ post['text'] }}</p>
+                  <blockquote>{{ post['text'] }}</blockquote>
                   <a href="comments/{{post['post_id']}}">
                       {{ post['comments']|length }} comments
                   </a>
@@ -33,7 +33,6 @@
           </div>
         {% endfor %}
       </div>
-      <div class="divider"></div>
       <div class="col s3">
         <div class="section">
           <a href="/postdiscussion" class="waves-effect waves-light btn-large">Post something!</a>

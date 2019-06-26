@@ -62,7 +62,7 @@ def upvote():
 
     with open('posts.json', 'w') as f:
         json.dump(posts, f, indent=2, separators=(',', ':'))
-    
+
     return jsonify(0)
 
 @app.route('/downvote', methods=['POST'])
