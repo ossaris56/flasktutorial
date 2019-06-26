@@ -78,6 +78,8 @@ def downvote():
     post_dict['points'] -= 1
     write_json('posts.json', posts)
 
-    return jsonify({'id': post_dict['points']})
+    return jsonify(
+        id=post_dict['points']
+    )
 
 app.run(debug=True)
