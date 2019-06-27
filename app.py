@@ -59,28 +59,33 @@ def comments(post_id):
 def upvote():
     data = request.get_json()
     posts = read_json('posts.json')
-    post_dict = posts[data['id']]
+    posts[data['id']]['points'] += 1
+    # post_dict = posts[data['id']]
 
     # increment the points counter
-    post_dict['points'] += 1
+    # post_dict['points'] += 1
     write_json('posts.json', posts)
     # return jsonify(0)
     return jsonify(
-        id=post_dict['points']
+        # id=post_dict['points']
+        id=posts[data['id']]['points']
     )
 
 @app.route('/downvote', methods=['POST'])
 def downvote():
     data = request.get_json()
     posts = read_json('posts.json')
-    post_dict = posts[data['id']]
+    # post_dict = posts[data['id']]['points'] -= 1
+
+    posts[data['id']]['points'] -= 1
 
     # decrement the points counter
-    post_dict['points'] -= 1
+    # post_dict['points'] -= 1
     write_json('posts.json', posts)
 
     return jsonify(
-        id=post_dict['points']
+        # id=post_dict['points']
+        id=posts[data['id']]['points']
     )
 
 @app.errorhandler(404)
