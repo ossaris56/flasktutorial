@@ -3,6 +3,7 @@ import uuid, json
 
 app = Flask(__name__)
 
+# reads json file and appends empty dictionary if json file is empty
 def read_json(json_file):
     with open(json_file, "r") as f:
         try:
@@ -11,49 +12,42 @@ def read_json(json_file):
             posts = {}
         return posts
 
+# writes into the json file 
 def write_json(json_file, data):
     with open(json_file, "w") as f:
         json.dump(data, f, indent=2, separators=(',', ':'), sort_keys=False)
 
 @app.route("/")
 def index():
-    posts = read_json('posts.json')
-    reversed_posts = {}
-    for key in reversed(list(posts.keys())):
-        reversed_posts[key] = posts[key]
+    # TODO: load json and reverse posts
 
-    # getting time difference of posts
-    return render_template('index.html', posts=reversed_posts)
+    return render_template()
 
 @app.route('/postdiscussion')
 def post_page():
-    return render_template('post.html')
+    return render_template()
 
 @app.route('/post', methods=['POST'])
 def post():
-    posts = read_json('posts.json')
-    formdata = request.form.to_dict()
-    formdata['comments'], formdata['points'], formdata['post_id'] = [], 0, uuid.uuid4().hex[:8]
-    posts[formdata['post_id']] = formdata
+    # TODO: load json, change form data into dict and populate comments, points and post_id
+    # TODO: set post_id as key and formdata dict as value
+    # TODO: write posts into json
 
-    # write the post
-    write_json('posts.json', posts)
-
-    return redirect(url_for('index'))
-
-@app.route('/comments/<string:post_id>/postcomment', methods=['POST'])
-def postcomment(post_id):
-    posts = read_json('posts.json')
-    posts[post_id]['comments'].append(request.form['comment'])
-    write_json('posts.json', posts)
-    return redirect(url_for('comments', post_id=post_id))
+    return redirect()
 
 @app.route('/comments/<string:post_id>', methods=['POST', 'GET'])
 def comments(post_id):
-    posts = read_json('posts.json')
-    post_dict = posts[post_id]
+    # TODO: load json, get value of post
 
-    return render_template('comments.html', post_id=post_id, post_dict=post_dict)
+    return render_template()
+
+@app.route('/comments/<string:post_id>/postcomment', methods=['POST'])
+def postcomment(post_id):
+    # TODO: load json, append comment into the comments list of the post
+    # TODO: write posts into json
+    # TODO: redirect while returning post id
+
+    return redirect()
 
 @app.route('/upvote', methods=['POST'])
 def upvote():
