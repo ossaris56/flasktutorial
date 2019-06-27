@@ -1,7 +1,5 @@
-from flask import Flask, render_template, request, jsonify, redirect, json, url_for
-import uuid
-
-from pprint import pprint
+from flask import Flask, render_template, request, jsonify, redirect, url_for
+import uuid, json
 
 app = Flask(__name__)
 

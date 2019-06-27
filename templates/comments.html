@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  {% include 'header.html' %}
+  <!-- TODO: include header -->
   <title>Reddit with Flask</title>
 </head>
 <body>
-  {% include 'nav.html' %}
+  <!-- TODO: include nav -->
   <div class="container">
     <div class="row">
       <div class="col s8">
         <div class="section">
-          <h5>{{ post_dict['title'] }}</h5>
-          <blockquote>{{ post_dict['text'] }}</blockquote>
+          <h5><!-- TODO: title --></h5>
+          <blockquote><!-- TODO: text --></blockquote>
         </div>
         <div class="row">
-          <form action="/comments/{{post_id}}/postcomment" method='POST'>
+          <form action="/comments/link variable path here/postcomment" method='POST'>
             <div class="col s10 input-field">
               <textarea name="comment" class="materialize-textarea"></textarea>
               <label for="comment">Comment something!</label>
@@ -26,11 +26,10 @@
             </div>
           </form>
         </div>
-        {% for comment in post_dict['comments'] %}
+        <!-- TODO: loop through comments in post_dict -->
             <div class="section card-panel">
-              <p>{{ comment }}</p>
+              <p></p>
             </div>
-        {% endfor %}
        </div>
        <div class="col s3">
         <div class="section">
