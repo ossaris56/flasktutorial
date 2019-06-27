@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, redirect, json
+from flask import Flask, render_template, request, jsonify, redirect, json, url_for
 import uuid
 
 from pprint import pprint
@@ -41,14 +41,14 @@ def post():
     # write the post
     write_json('posts.json', posts)
 
-    return redirect('/')
+    return redirect(url_for('index'))
 
 @app.route('/comments/<string:post_id>/postcomment', methods=['POST'])
 def postcomment(post_id):
     posts = read_json('posts.json')
     posts[post_id]['comments'].append(request.form['comment'])
     write_json('posts.json', posts)
-    return redirect('/comments/' + str(post_id))
+    return redirect(url_for('comments', post_id=post_id))
 
 @app.route('/comments/<string:post_id>', methods=['POST', 'GET'])
 def comments(post_id):
