@@ -37,7 +37,7 @@ def post():
 
 @app.route('/comments/<string:post_id>', methods=['POST', 'GET'])
 def comments(post_id):
-    # TODO: load json, get value of post
+    # TODO: load json, get data of post from the post id
 
     return render_template()
 
